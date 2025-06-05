@@ -26,6 +26,7 @@
       });
     </script>
   </head>
+
   <body>
     <main>
       <div
@@ -36,6 +37,7 @@
         <i class="bi bi-bell-fill"></i>
       </div>
       <a
+        id="form-call"
         class="bottom-5 w-fit h-fit px-8 py-2 fixed z-20 left-1/2 -translate-x-1/2 text-white text-lg bg-red-700 rounded-md"
         href="#form"
         >Deixe um pedido
@@ -598,6 +600,22 @@
             }).always(() => {
               $("#form-load").addClass("hidden");
             });
+          });
+        });
+      </script>
+      <script>
+        $(document).ready(function () {
+          $(window).on("scroll", function () {
+            const scrollTop = $(window).scrollTop(); // сколько прокручено сверху
+            const windowHeight = $(window).height(); // высота видимой области
+            const documentHeight = $(document).height(); // вся высота страницы
+
+            if (scrollTop > documentHeight / 2 - windowHeight / 2) {
+              // Если прокручено больше половины страницы
+              $("#form-call").fadeOut();
+            } else {
+              $("#form-call").fadeIn();
+            }
           });
         });
       </script>

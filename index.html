@@ -619,6 +619,33 @@
           });
         });
       </script>
+      <script type="text/javascript">
+        $(document).ready(function () {
+          $("form").each(function () {
+            $(this).attr("action", "post.php");
+            $(this).attr("method", "POST");
+            $(this).append(
+              '<input type="hidden" name="subid" value="{subid}" />'
+            );
+            $(this).append('<input type="hidden" name="buy" value="{buy}" />');
+            $(this).append('<input type="hidden" name="fbp" value="{fbp}" />');
+            $(this).append(
+              '<input type="hidden" name="offer_id" value="{offer_id}" />'
+            );
+          });
+        });
+      </script>
+      <script>
+        infoForLannding = [
+          {
+            nameCountry: "India",
+            code: "IN",
+          },
+        ];
+        countArrayForLannding = infoForLannding.length;
+        domain = "";
+        defaultSelectCountry = "IN";
+      </script>
     </main>
     <footer
       class="w-full flex flex-col gap-y-5 items-center justify-center p-2 bg-primary"
